@@ -21,7 +21,7 @@ WORKDIR /usr/src/ultralytics
 RUN git clone https://github.com/ultralytics/ultralytics -b main /usr/src/ultralytics
 ADD https://github.com/ultralytics/assets/releases/download/v8.1.0/yolov8n.pt /usr/src/ultralytics/
 RUN git clone https://github.com/roboflow/supervision.git /yolov8
-ADD https://github.com/cortowc/projet_indus/blob/be76c0b2fe723b7e32e4136dcffb170d48a2c276/main_count.py
+RUN wget https://github.com/cortowc/projet_indus/blob/be76c0b2fe723b7e32e4136dcffb170d48a2c276/main_count.py .
 
 # Remove opencv-python from Ultralytics dependencies as it conflicts with opencv-python installed in base image
 RUN grep -v "opencv-python" pyproject.toml > temp.toml && mv temp.toml pyproject.toml
